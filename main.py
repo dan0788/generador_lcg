@@ -30,35 +30,35 @@ def main():
     # print("Generador Congruencial Lineal (LCG)")
 
     label_instruccion=tk.Label(ventana, text="Ingrese los siguientes parámetros:")
-    label_instruccion.pack(pady=10)
+    label_instruccion.pack(pady=5)
     # print("Ingrese los siguientes parámetros:")
 
     label_X0_input=tk.Label(ventana, text="Semilla inicial (X0): ")
-    label_X0_input.pack(pady=10)
+    label_X0_input.pack(pady=5)
     global entry_X0_input
     entry_X0_input=tk.Entry(ventana)
-    entry_X0_input.pack(pady=10)
+    entry_X0_input.pack(pady=5)
     #X0_input = input("Semilla inicial (X0): ")
 
     label_k_input=tk.Label(ventana, text="Coeficiente (k): ")
-    label_k_input.pack(pady=10)
+    label_k_input.pack(pady=5)
     global entry_k_input
     entry_k_input=tk.Entry(ventana)
-    entry_k_input.pack(pady=10)
+    entry_k_input.pack(pady=5)
     #k_input = input("Coeficiente (k): ")
 
     label_c_input=tk.Label(ventana, text="Constante aditiva (c): ")
-    label_c_input.pack(pady=10)
+    label_c_input.pack(pady=5)
     global entry_c_input
     entry_c_input=tk.Entry(ventana)
-    entry_c_input.pack(pady=10)
+    entry_c_input.pack(pady=5)
     #c_input = input("Constante aditiva (c): ")
 
     label_N_input=tk.Label(ventana, text="Número de iteraciones (N): ")
-    label_N_input.pack(pady=10)
+    label_N_input.pack(pady=5)
     global entry_N_input
     entry_N_input=tk.Entry(ventana)
-    entry_N_input.pack(pady=10)
+    entry_N_input.pack(pady=5)
     #N_input = input("Número de iteraciones (N): ")
 
     # x0=int(entry_X0_input.get())
