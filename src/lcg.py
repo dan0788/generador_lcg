@@ -1,31 +1,38 @@
-def lcg(X0, k, g, c, N):
+import math
+
+def lcg(X0, k, c, N):
     """
     Genera una secuencia de números pseudoaleatorios utilizando el Generador Congruencial Lineal (LCG).
 
     Args:
-        X0: Semilla inicial (entero, 0 <= X0 < m).
-        k: Coeficiente (entero >= 0).
-        g: Exponente del módulo (entero >= 1).
-        c: Constante aditiva (entero, 0 <= c < m).
-        N: Número de iteraciones (entero, 1 <= N <= 10000).
+    X0: Semilla inicial (entero, 0 <= X0 < m).
+    k: Coeficiente (entero >= 0).
+    g: Exponente del módulo (entero >= 1).
+    c: Constante aditiva (entero, 0 <= c < m).
+    N: Número de iteraciones (entero, 1 <= N <= 10000).
 
     Returns:
-        tuple: Una tupla conteniendo:
-            - a: El valor del multiplicador.
-            - m: El valor del módulo.
-            - sequence: Una lista de los N números generados.
+    tuple: Una tupla conteniendo:
+    - a: El valor del multiplicador.
+    - m: El valor del módulo.
+    - sequence: Una lista de los N números generados.
     """
     try:
         X0 = int(X0)
         k = int(k)
-        g = int(g)
+        # g = int(g)
         c = int(c)
         N = int(N)
     except ValueError:
         raise ValueError("Error: Todas las entradas deben ser enteros.")
 
-    m = 2**g
     a = 1 + 4 * k
+    if N > 0:
+        g = math.log(N) / math.log(2)
+        m = 2**g
+    else:
+        raise ValueError("Error: El número de iteraciones N debe ser mayor que 0.")
+
 
     if not (0 <= X0 < m):
         raise ValueError(f"Error: La semilla X0 ({X0}) debe estar en el rango [0, {m-1}].")
@@ -42,14 +49,15 @@ def lcg(X0, k, g, c, N):
     x = X0
     for i in range(N):
         x = (a * x + c) % m
-        sequence.append(x)
+        r=x/(m-1)
+        sequence.append(r)
 
     return a, m, sequence
 
 if __name__ == "__main__":
     # Ejemplo de uso (para probar la función directamente)
     try:
-        a_val, m_val, result_sequence = lcg(X0=5, k=3, g=4, c=1, N=10)
+        a_val, m_val, result_sequence = lcg(X0=5, k=3, c=1, N=10)
         print(f"Multiplicador (a): {a_val}")
         print(f"Módulo (m): {m_val}")
         print("Secuencia generada:")
